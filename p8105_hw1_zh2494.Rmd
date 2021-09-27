@@ -5,13 +5,13 @@ date: "9/23/2021"
 output: github_document
 ---
 
-# section 1
+# Library
 ```{r include = FALSE}
 library(tidyverse)
 library(ggplot2)
 ```
 
-# section 2
+# problem 1
 ```{r}
 problem_1_df = tibble(
   vec_numeric = rnorm(n = 10),
