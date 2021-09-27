@@ -5,21 +5,26 @@ date: "9/23/2021"
 output: github_document
 ---
 
-# Library
 ```{r include = FALSE}
 library(tidyverse)
 library(ggplot2)
 ```
 
 # problem 1
+
+* create the data frame
+
 ```{r}
 problem_1_df = tibble(
-  vec_numeric = rnorm(n = 10),
-  vec_logical = vec_numeric > 0,
-  vec_char = c("a","b","c","d","e","f","g","h","I","g"),
+  vec_numeric = rnorm(n = 10), # a random sample of size 10 from a standard normal distrbution
+  vec_logical = vec_numeric > 0, # a logical vector indicating whether elements of the sample are greater than 0
+  vec_char = c("a","b","c","d","e","f","g","h","I","g"), # a character vector of length 10
   vec_factor = factor(c("high","low","median","high","low","median","high","low","median","high"))
-)
-problem_1_df
+) # a factor vector of length 10, with 3 different factor “levels”
+
+# problem_1 data frame
+problem_1_df 
+
 
 ```
 
