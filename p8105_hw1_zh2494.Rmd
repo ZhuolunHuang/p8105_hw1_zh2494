@@ -6,8 +6,9 @@ output: github_document
 ---
 
 # section 1
-```{r message = FALSE}
+```{r include = FALSE}
 library(tidyverse)
+library(ggplot2)
 ```
 
 # section 2
