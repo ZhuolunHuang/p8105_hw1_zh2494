@@ -43,10 +43,10 @@ mean_factor = mean(pull(problem_1_df, vec_factor))
 mean_factor
 ```
 
-The mean of the numeric number is `r mean_numeric`
-The mean of the numeric number is `r mean_logical`
-The mean of the numeric number is `r mean_char`,the result is NA, because the charater is not converted to number. 
-The mean of the numeric number is `r mean_factor`
+**The mean of the numeric number is `r mean_numeric`.**
+**The mean of the mean_logical is `r mean_logical`.**
+**The mean of the character is `r mean_char`,taking the mean does not work and will return NA instead.**
+**The mean of the numeric number is `r mean_factor`,taking the mean does not work and will return NA instead.**
 
 # section 4
 
