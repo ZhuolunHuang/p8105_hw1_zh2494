@@ -45,8 +45,8 @@ mean_factor
 
 **The mean of the numeric number is `r mean_numeric`.**
 **The mean of the mean_logical is `r mean_logical`.**
-**The mean of the character is `r mean_char`,taking the mean does not work and will return NA instead.**
-**The mean of the numeric number is `r mean_factor`,taking the mean does not work and will return NA instead.**
+**The mean of the character is `r mean_char`,taking the mean does not work and will return NA**
+**The mean of the factor number is `r mean_factor`,taking the mean does not work and will return NA**
 
 * Add ``as.numeric` function to logical,character and factor variables
 
@@ -74,17 +74,31 @@ data("penguins", package = "palmerpenguins")
 
 # show the overall of the penguins
 skimr::skim(penguins)
+
+#the data in this dataset, including names/values of important variables. 
+head(penguins)
 ```
 
-• The names of the penguins are `r names(penguins)`
-• The mean of the flipper length is `r mean(pull(penguins,flipper_length_mm))`
-• The data frame penguins has `r nrow(penguins)` rows 
-• The data frame penguins has `r ncol(penguins)` columns
-
+**The variables of the penguins are `r names(penguins)`.**
+**The data frame penguins has `r nrow(penguins)` rows.**
+**The data frame penguins has `r ncol(penguins)` columns.**
+**the species of this dataset, there are `r length(unique(penguins$species))` categories, which are  `r unique(penguins$species)`.**
+**The island of this dataset, there are `r length(unique(penguins$island))` categories, which are `r unique(penguins$island)`.**
+**The bill length (mm) starts from `r min(pull(penguins,bill_length_mm), na.rm = T)` to `r max(pull(penguins,bill_length_mm), na.rm = T)` with mean equals to `r mean(pull(penguins,bill_length_mm), na.rm = T)`.**
+**The bill depth (mm) starts from `r min(pull(penguins,bill_depth_mm), na.rm = T)` to `r max(pull(penguins,bill_depth_mm), na.rm = T)` with mean equals to `r mean(pull(penguins,bill_depth_mm), na.rm = T)`.** 
+**The flipper length (mm) starts from `r min(pull(penguins,flipper_length_mm), na.rm = T)` to `r max(pull(penguins,flipper_length_mm), na.rm = T)` with mean equals to `r mean(pull(penguins,flipper_length_mm), na.rm = T)`.** 
+**The body mass (g) starts from `r min(pull(penguins,body_mass_g), na.rm = T)` to `r max(pull(penguins,body_mass_g), na.rm = T)` with mean equals to `r mean(pull(penguins,body_mass_g), na.rm = T)`.** 
+  
+* make the scatterplot 
 
 ```{r}
-ggplot(penguins, aes(x = bill_length_mm,y = flipper_length_mm,color = species)) + geom_point()
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point() + 
+  ggtitle("Penguins Flipper length vs Bill length") + 
+  ylab("Flipper length") +
+  xlab("Bill length")
 
+#save the plot
 ggsave("scatter_plot.jpeg", height = 4, width = 4)
 ```
 
