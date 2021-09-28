@@ -48,6 +48,23 @@ mean_factor
 **The mean of the character is `r mean_char`,taking the mean does not work and will return NA instead.**
 **The mean of the numeric number is `r mean_factor`,taking the mean does not work and will return NA instead.**
 
+* Add ``as.numeric` function to logical,character and factor variables
+
+```{r, results="hide"}
+# add as.numeric to nordist_sam
+as.numeric(pull(problem_1_df ,vec_numeric))
+# add as.numeric to sam_greater0
+as.numeric(pull(problem_1_df ,vec_logical))
+# add as.numeric to chara_10
+as.numeric(pull(problem_1_df ,vec_char))
+# add as.numeric to fact_10
+as.numeric(pull(problem_1_df ,vec_factor))
+```
+
+**`as.numeric` is applied to logical variable and numeric variable.**
+**but it can not be used for character and factor variable.**
+**This the reason why the logical variable and numeric variable can be** **converted but the factor and character can not be converted and can not be calculated as well.**
+
 # problem 2
 
 ```{r}
@@ -55,18 +72,15 @@ mean_factor
 # load penguins dataset 
 data("penguins", package = "palmerpenguins")
 
-mean(as.numeric(pull(penguins,flipper_length_mm)))
+# show the overall of the penguins
 skimr::skim(penguins)
-a = as.numeric(pull(penguins,flipper_length_mm))
-a1 = a[!is.na(a)]
-mean(a1)
 ```
 
 • The names of the penguins are `r names(penguins)`
 • The mean of the flipper length is `r mean(pull(penguins,flipper_length_mm))`
 • The data frame penguins has `r nrow(penguins)` rows 
 • The data frame penguins has `r ncol(penguins)` columns
-• The mean flipper length is `r mean(a1)`
+
 
 ```{r}
 ggplot(penguins, aes(x = bill_length_mm,y = flipper_length_mm,color = species)) + geom_point()
