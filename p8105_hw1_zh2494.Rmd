@@ -24,16 +24,23 @@ problem_1_df = tibble(
 
 # problem_1 data frame
 problem_1_df 
-
-
 ```
 
-# section 3
+* take the mean of each variables
+
 ```{r mean_of_all_variable}
+#  a random sample of size 10 from a standard Normal distribution
 mean_numeric = mean(pull(problem_1_df, vec_numeric))
-mean_logical = mean(as.numeric(pull(problem_1_df, vec_logical)))
-mean_char = mean(as.numeric(pull(problem_1_df, vec_char)))
-mean_factor = mean(as.numeric(pull(problem_1_df, vec_factor)))
+mean_numeric
+# a logical vector indicating whether elements of the sample are greater than 0
+mean_logical = mean(pull(problem_1_df, vec_logical))
+mean_logical
+# a character vector of length 10
+mean_char = mean(pull(problem_1_df, vec_char))
+mean_char
+# a factor vector of length 10, with 3 different factor “levels”
+mean_factor = mean(pull(problem_1_df, vec_factor))
+mean_factor
 ```
 
 The mean of the numeric number is `r mean_numeric`
