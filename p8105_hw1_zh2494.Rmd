@@ -48,12 +48,13 @@ mean_factor
 **The mean of the character is `r mean_char`,taking the mean does not work and will return NA instead.**
 **The mean of the numeric number is `r mean_factor`,taking the mean does not work and will return NA instead.**
 
-# section 4
+# problem 2
 
 ```{r}
 # install.packages("palmerpenguins")
+# load penguins dataset 
 data("penguins", package = "palmerpenguins")
-view(penguins)
+
 mean(as.numeric(pull(penguins,flipper_length_mm)))
 skimr::skim(penguins)
 a = as.numeric(pull(penguins,flipper_length_mm))
